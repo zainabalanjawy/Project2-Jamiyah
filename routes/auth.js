@@ -8,6 +8,8 @@ router.get("/auth/signin", authCtrl.signInPage);
 // router.post("/auth/signup", authCtrl.signUpPagePost);
 // router.post("/auth/signin", authCtrl.signInPagePost);
 
-// router.get("/auth/logout", authCtrl.logout);
+router.get("/auth/signout", authCtrl.signout);
+router.get("/auth/forget_password", authCtrl.forget_password_get);
+router.post("/auth/forget_password", authCtrl.forget_password_post);
 
 module.exports = router;

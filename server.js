@@ -8,6 +8,9 @@ const session = require("express-session");
 
 const indexRout = require("./routes/index");
 const authRout = require("./routes/auth");
+const jamiyahRoute = require("./routes/jamiyah");
+const userRoute = require("./routes/user");
+const accountRoute = require("./routes/account");
 
 //<--Initalise App-->>
 const app = express();
@@ -23,6 +26,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRout);
 app.use("/", authRout);
+app.use("/", jamiyahRoute);
+app.use("/", userRoute);
+app.use("/", accountRoute);
 
 app.listen(port, function () {
   console.log("Server running on port 4007");
