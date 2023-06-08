@@ -12,6 +12,7 @@ exports.signout = (req, res) => {
   res.redirect("/");
 };
 
+
 exports.forget_password_get = (req, res) => {
   res.render("auth/forget_password");
 };
