@@ -50,8 +50,12 @@ body {
         left: 0;
     }
 
-    .login-form{
-        margin-top: 70%;
+    .signin-form{
+        margin-top: 60%;
+    }
+
+    .signup-form{
+        margin-top: 18%;
     }
 
     .register-form{
@@ -105,3 +109,16 @@ body {
     color: rgb(0, 0, 0);
 
 }
+
+.forgot{
+    font-size: 12px;
+    margin-left: 1%;
+    text-decoration: none;
+    color: #343434;
+}
+
+.forgot:hover{
+    color: #000;
+
+}
+
