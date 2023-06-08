@@ -1,7 +1,7 @@
 exports.account_details_get = (req,res)=>{
-    res.send(' Here is account/details')
+    //res.send(' Here is account/details')
     //Find account balance of the user id to expand its details
-    //res.render('account/details')
+    res.render('account/details')
 
 }
 

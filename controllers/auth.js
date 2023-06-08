@@ -15,7 +15,7 @@ exports.signout = (req,res)=>
 
 exports.forget_password_get = (req,res)=>
 {
-  //res.render("auth/forget_password");
+  res.render("auth/forget_password");
 }
 
 exports.forget_password_post = (req,res)=>
