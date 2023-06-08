@@ -6,19 +6,17 @@ exports.signInPage = (req, res) => {
   res.render("auth/signin");
 };
 
-exports.signout = (req,res)=>
-{
+exports.signout = (req, res) => {
   //signout from system
-  console.log('Signed out!')
-  res.redirect('/')
-}
+  console.log("Signed out!");
+  res.redirect("/");
+};
 
-exports.forget_password_get = (req,res)=>
-{
+
+exports.forget_password_get = (req, res) => {
   res.render("auth/forget_password");
-}
+};
 
-exports.forget_password_post = (req,res)=>
-{
+exports.forget_password_post = (req, res) => {
   //Reset password if the security question is correct
-}
+};
