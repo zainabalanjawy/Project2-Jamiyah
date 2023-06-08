@@ -7,6 +7,7 @@ const session = require("express-session");
 //<--import routers-->>
 
 const indexRout = require("./routes/index");
+const authRout = require("./routes/auth");
 
 //<--Initalise App-->>
 const app = express();
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 //<--mount routes-->>
 
 app.use("/", indexRout);
+app.use("/", authRout);
 
 app.listen(port, function () {
   console.log("Server running on port 4007");
