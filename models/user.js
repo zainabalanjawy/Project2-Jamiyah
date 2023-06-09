@@ -27,11 +27,11 @@ const userSchema = mongoose.Schema(
   }
 );
 
-// userSchema.methods.verifyPassword = function (password) {
-//   // returns true if both passwords are the same after being hashed
-//   console.log("Verifying Password: ", password);
-//   return bcrypt.compareSync(password, this.password);
-// };
+userSchema.methods.verifyPassword = function (password) {
+  // returns true if both passwords are the same after being hashed
+  console.log("Verifying Password: ", password);
+  return bcrypt.compareSync(password, this.password);
+};
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
