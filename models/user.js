@@ -21,6 +21,11 @@ const userSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
+    confirmPassword: {
+      type: String,
+      required: true,
+      unique: true,
+    },
   },
   {
     timestamps: true,

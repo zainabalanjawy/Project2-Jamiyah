@@ -11,10 +11,15 @@ exports.signUpPagePost = async (req, res) => {
     const user = new User(req.body);
     console.log(req.body);
 
-    const hash = bcrypt.hashSync(req.body.password);
+    const hash = bcrypt.hashSync(req.body.password, 10);
     console.log(`Hashed Password: ${hash}`);
 
     user.password = hash;
+    user.confirmPassword = hash;
+
+    if (req.body.password !== req.body.confirmPassword) {
+      return res.status(400).send("Passwords do not match");
+    }
 
     await user.save();
     res.redirect("/");

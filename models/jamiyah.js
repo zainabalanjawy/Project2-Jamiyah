@@ -19,10 +19,12 @@ const jamiyahSchema = mongoose.Schema(
       type: Number,
       required: true,
     },
-    participants: {
-      type: Number,
-      required: true,
-    },
+    participants: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
     account: [
       {
         type: mongoose.Schema.Types.ObjectId,
