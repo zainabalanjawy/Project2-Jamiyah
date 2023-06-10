@@ -91,11 +91,14 @@ body {
     color: #000;
     margin-left: 2%;
     font-weight: 860;
+    border: none;
+    background-color: transparent;
 }
 
 .login:hover{
     text-decoration: none;
     color: #e7e30c;
+    background-color: transparent;
 }
 
 .signup{

@@ -2,7 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
-// const passportConfig = require("./lib/passportConfig");
+const passportConfig = require("./lib/passportConfig");
+const passport = require("passport");
 
 //<--import routers-->>
 
@@ -22,6 +23,23 @@ app.use(express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
 
+app.use(
+  session({
+    secret: "themightysecret",
+    saveUninitialized: true,
+    resave: false,
+    cookie: { maxAge: 8640000 },
+  })
+);
+
+app.use(passportConfig.initialize());
+app.use(passportConfig.session());
+
+app.use(function (req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 //<--mount routes-->>
 
 app.use("/", indexRout);
@@ -35,7 +53,7 @@ app.listen(port, function () {
 });
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/jamiyah-DB", {
+  .connect("mongodb://localhost:27017/jamiyah-DB", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
