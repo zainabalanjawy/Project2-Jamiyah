@@ -3,7 +3,11 @@ body {
 }
 
 
-
+.selected
+{
+    text-decoration: underline;
+    color: #d5d5d5;
+}
 .main-head{
     height: 150px;
     background: #FFF;
@@ -122,3 +126,66 @@ body {
 
 }
 
+.menu
+{
+    display: flex;
+    justify-content: space-between;
+    background-color: #000;
+    height: 5vw;
+    align-items: baseline;
+}
+nav a{
+    margin: auto 1vw;
+    color: #FFF;
+}
+nav a:hover{
+    color: #e7e30c;
+    text-decoration: none;
+}
+.logo img
+{
+    height: 5vw;
+}
+.footer{
+    text-align: center;
+    background-color: #000;
+    height: 3vw;
+    color: #FFF;
+    bottom: 0;
+    width: 100%;
+    position:fixed;
+    align-items: center;
+}
+.footer h5{
+    margin: 1vw;
+    font-size:smaller;
+}
+.body
+{
+    align-content: center;
+}
+.header h1
+{
+    text-align: center;
+    margin: 2vw;
+    font-weight: bold;
+}
+
+.card-bg
+{
+    text-align: center;
+    background-color: #000000;
+}
+.text-uppercase
+{
+    color:#e7e30c
+}
+.link 
+{
+    color: #d5d5d5;
+}
+
+.link:hover{
+    text-decoration: none;
+    color: #e7e30c;
+}
