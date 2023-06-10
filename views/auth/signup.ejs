@@ -9,29 +9,29 @@
  <div class="main">
     <div class="col-md-6 col-sm-12">
        <div class="signup-form">
-          <form>
+          <form action="/auth/signup" method="post">
              <div class="form-group">
                 <label>Email Address</label>
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="email" name="email" class="form-control" placeholder="Email">
              </div>
              <div class="form-group">
                 <label>Phone</label>
-                <input type="text" class="form-control" placeholder="Phone">
+                <input type="text" name="phone" class="form-control" placeholder="Phone">
              </div>
              <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" name="password" class="form-control" placeholder="Password">
              </div>
              <div class="form-group">
                 <label>Confirm Password</label>
-                <input type="password" class="form-control" placeholder="Confirm Password">
+                <input type="password" name="confirmPassword" class="form-control" placeholder="Confirm Password">
              </div>
              <div class="form-group">
                 <label>Security Code</label>
-                <input type="text" class="form-control" placeholder="Security Code">
+                <input type="text" name="securityCode" class="form-control" placeholder="Security Code">
              </div>
              
-             <a class="login" href="/">Join Jamiyah!</a>
+             <input type="submit" value="Join Jamiyah!" class="login">
              
         
           </form>

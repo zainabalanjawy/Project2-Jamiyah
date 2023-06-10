@@ -8,16 +8,16 @@
  <div class="main">
     <div class="col-md-6 col-sm-12">
        <div class="signin-form">
-          <form>
+          <form action="/auth/signin" method="post">
              <div class="form-group">
                 <label>Email Address</label>
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="email" name="email" class="form-control" placeholder="Email">
              </div>
              <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" name="password" class="form-control" placeholder="Password">
              </div>
-             <a class="login" href="/">Login</a>  <a class="forgot" href="">Forgot Password</a>
+             <input type="submit" value="Login" class="login">  <a class="forgot" href="/auth/forget_password">Forgot Password</a>
              
         
           </form>
