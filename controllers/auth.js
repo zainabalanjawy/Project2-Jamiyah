@@ -10,7 +10,8 @@ exports.signUpPage = (req, res) => {
 exports.signUpPagePost = async (req, res) => {
   try {
     const user = new User(req.body);
-    // const account = new Account(req.body)
+    const account = new Account();
+    account.balance = 0;
     console.log(req.body);
 
     const hash = bcrypt.hashSync(req.body.password, 10);
@@ -24,6 +25,9 @@ exports.signUpPagePost = async (req, res) => {
     }
 
     await user.save();
+    account.user = user;
+    await account.save();
+    console.log(account);
     res.redirect("/");
     console.log("User Added");
   } catch (error) {
