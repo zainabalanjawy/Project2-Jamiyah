@@ -1,5 +1,5 @@
 const User = require("../models/user");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const passport = require("../lib/passportConfig");
 
 exports.signUpPage = (req, res) => {
@@ -53,6 +53,19 @@ exports.forget_password_get = (req, res) => {
   res.render("auth/forget_password");
 };
 
-exports.forget_password_post = (req, res) => {
+exports.forget_password_post = async (req, res) => {
   //Reset password if the security question is correct
+  try {
+    const user = await User.findOne({ securityCode });
+
+    if (req.body.securityCode !== user.securityCode) {
+      return res.status(400).send("Wrong Security Code");
+    } else {
+      user.password = newPassword;
+    }
+    await user.save();
+    console.log("reset succesful");
+  } catch (error) {
+    res.send(error.message);
+  }
 };
