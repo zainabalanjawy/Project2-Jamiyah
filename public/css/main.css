@@ -235,3 +235,37 @@ nav a:hover{
     background-color: #fffb00;
 }
 
+.icons{
+    padding: 10px;
+}
+
+.register-home-links{
+    text-align: center;
+    margin-top: 6%;
+    margin-right: 1%;
+}
+
+.login-home , .signup-home{
+    background-color: #000 !important;
+    border-color: #000 !important;
+    
+}
+
+.login-home:hover , .signup-home:hover{
+    background-color: #ffe100 !important;
+    border-color: #ffe100!important;
+    color: #000 !important;
+}
+
+.home-text{
+    text-align: center;
+    margin-top: 10%;
+    margin-left: 19%;
+    width: 60%;
+}
+
+.header-home{
+    color: #e8d900;
+    font-weight: bold;
+    font-size: 90px;
+}
