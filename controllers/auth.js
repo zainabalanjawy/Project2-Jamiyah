@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const passport = require("../lib/passportConfig");
+const Account = require("../models/account");
 
 exports.signUpPage = (req, res) => {
   res.render("auth/signup");
@@ -9,6 +10,7 @@ exports.signUpPage = (req, res) => {
 exports.signUpPagePost = async (req, res) => {
   try {
     const user = new User(req.body);
+    // const account = new Account(req.body)
     console.log(req.body);
 
     const hash = bcrypt.hashSync(req.body.password, 10);
@@ -55,17 +57,32 @@ exports.forget_password_get = (req, res) => {
 
 exports.forget_password_post = async (req, res) => {
   //Reset password if the security question is correct
+  const { securityCode, newPassword, confirmPassword } = req.body; // assuming you are getting the security code and new password from the request body
+
   try {
     const user = await User.findOne({ securityCode });
 
-    if (req.body.securityCode !== user.securityCode) {
-      return res.status(400).send("Wrong Security Code");
-    } else {
-      user.password = newPassword;
+    if (!user) {
+      return res.redirect("/auth/forget_password");
     }
-    await user.save();
-    console.log("reset succesful");
-  } catch (error) {
-    res.send(error.message);
+
+    // if security code matches, update password
+    if (securityCode === user.securityCode) {
+      user.password = newPassword;
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+      user.password = hashedPassword;
+      user.confirmPassword = hashedPassword;
+
+      await user.save();
+      return res
+        .status(200)
+        .json({ message: "Password updated successfully." });
+    } else {
+      return res.status(401).json({ error: "Invalid security code." });
+    }
+  } catch (err) {
+    return res.status(500).json({ error: "Internal server error." });
   }
 };
