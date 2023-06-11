@@ -248,6 +248,7 @@ nav a:hover{
 .login-home , .signup-home{
     background-color: #000 !important;
     border-color: #000 !important;
+    
 }
 
 .login-home:hover , .signup-home:hover{
@@ -266,4 +267,5 @@ nav a:hover{
 .header-home{
     color: #e8d900;
     font-weight: bold;
+    font-size: 90px;
 }
