@@ -24,12 +24,6 @@ const jamiyahSchema = mongoose.Schema(
         ref: "User",
       },
     ],
-    account: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Account",
-      },
-    ],
   },
   {
     timestamps: true,
