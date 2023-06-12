@@ -33,10 +33,16 @@
         <label>Monthly contribution</label>
         <input type="number" name="monthlyContribution">
     </div>
-
+    
     <div>
         <label>Participants</label>
-        <input type="text" name="participants">
+        <select name = "participants" multiple>
+            <% users.forEach(a => {%>
+            <option value="<%= a._id %>">
+            <%= a.email %> </option>
+            <%}); %>
+        </select>
+        
     </div>
     <input type="hidden" value="<%= currentUser._id %>" name="id">
     <input type="submit" name="submit" value="A submit button">
