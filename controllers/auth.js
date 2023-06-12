@@ -80,9 +80,7 @@ exports.forget_password_post = async (req, res) => {
       user.confirmPassword = hashedPassword;
 
       await user.save();
-      return res
-        .status(200)
-        .json({ message: "Password updated successfully." });
+      return res.redirect("/auth/signin");
     } else {
       return res.status(401).json({ error: "Invalid security code." });
     }
