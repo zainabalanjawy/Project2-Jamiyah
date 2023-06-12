@@ -1,1 +1,55 @@
-<h2>Create new Jamiyah</h2>
+<div class="menu">
+    <div class="logo">
+        <img src="../../imgs/Jamiyah.png" alt="jamiyah logo">
+    </div>
+    <div class="nav">
+        <nav class="">
+            <a href="/jamiyah/home" class="selected">Home</a>
+            <a href="/jamiyah/create" >Add</a>
+            <a href="/user/profile" >Profile</a>
+        </nav>
+    </div>
+</div>
+
+<h2>Create a Jamiyah</h2>
+
+<form method="POST" action="/jamiyah/create" class="create-jam">
+    <div>
+        <label>Name</label>
+        <input type="text" name="name">
+    </div>
+
+    <div>
+        <label>Description</label>
+        <input type="text" name="description">
+    </div>
+
+    <div>
+        <label>Duration</label>
+        <input type="text" name="duration">
+    </div>
+
+    <div>
+        <label>Monthly contribution</label>
+        <input type="number" name="monthlyContribution">
+    </div>
+
+    <div>
+        <label>Participants</label>
+        <input type="text" name="participants">
+    </div>
+    <input type="hidden" value="<%= currentUser._id %>" name="id">
+    <input type="submit" name="submit" value="A submit button">
+
+    <div class="sidenav">
+        <div class="login-main-text">
+           <h2>START A <span class="jamiyahHero">JAMIYAH!</span></h2>
+           <p>You and a group of your trusted <br> participants can join together <br> to create a community saving.</p>
+        </div>
+     </div>
+    </div>
+</form>
+
+<div class="footer">
+    <h5>©GA, Jamiyah. 2023. </h5>
+</div>
