@@ -18,30 +18,40 @@
 </div>
 <div>
     <h1>Jamiyah Details</h1>
-    <label>Name</label>
-    <input type="text" name="name">
+    <label>Name: <%= jamiyah.name%> </label>
 </div>
 
 <div>
-    <label>Description</label>
-    <input type="text" name="description">
+    <label>Description: <%= jamiyah.description%> </label>
 </div>
 
 <div>
-    <label>Duration</label>
-    <input type="text" name="duration">
+    <label>Duration: <%= jamiyah.duration%></label>
+
 </div>
 
 <div>
-    <label>Monthly contribution</label>
-    <input type="number" name="monthlyContribution">
+    <label>Monthly contribution: <%= jamiyah.monthlyContribution%></label>
 </div>
 
 <div>
     <label>Participants</label>
-    <input type="number" name="participants">
+    <ul name = "participants" multiple>
+        <% jamiyah.participants.forEach(a => {%>
+        <% users.forEach(b => {%>
+        <% if(a.equals(b._id)) { %>
+        <li value="<%= b._id %>">
+        <%= b.email %> </li>
+        <%}}) %>
+        <%}) %>
+        </ul>
 </div>
 
+<td>
+    <form method="POST" action="/jamiyah/delete?id=<%= jamiyah._id%>">
+        <button type="submit">DELETE</button>
+    </form>
+</td>
 <div class="footer">
     <h5>©GA, Jamiyah. 2023. </h5>
 </div>
