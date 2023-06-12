@@ -10,35 +10,24 @@
         </nav>
     </div>
 </div>
-
-<!-- <div class="body">
+<div class="body">
     <div class="header">
         <h1>My Jamiyah's</h1>
     </div>
     <div class="container-fluid service position-relative px-5 mt-5" style="margin-bottom: 135px;">
         <div class="container">
             <div class="row g-5">
+                <% jamiyahs.forEach(a => {%>
+                
                 <div class="col-lg-4 col-md-6">
                     <div class="card-bg border-inner text-white p-5">
-                        <h4 class="text-uppercase mb-3">Jamiyah Name</h4>
-                        <p>Jamiyah description :Ipsum ipsum  sea eirmod diam stet sit justo amet tempor amet kasd lorem dolor ipsum</p>
-                        <a class="link text-uppercase" href="/jamiyah/details">Go to Jamiyah! <i class="bi bi-arrow-right"></i></a>
+                        <h4 class="text-uppercase mb-3"> <%= a.name %></h4>
+                        <p> <%= a.description %></p>
+                        <h2> BD <%= a.monthlyContribution %></h2>
+                        <a class="link text-uppercase" href="/jamiyah/details?id=<%= a._id %>">Go to Jamiyah! <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card-bg border-inner text-white p-5">
-                        <h4 class="text-uppercase mb-3">Jamiyah Name</h4>
-                        <p>Jamiyah description :Ipsum ipsum  sea eirmod diam stet sit justo amet tempor amet kasd lorem dolor ipsum</p>
-                        <a class="link text-uppercase" href="/jamiyah/details">Go to Jamiyah! <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card-bg border-inner text-white p-5">
-                        <h4 class="text-uppercase mb-3">Jamiyah Name</h4>
-                        <p>Jamiyah description :Ipsum ipsum  sea eirmod diam stet sit justo amet tempor amet kasd lorem dolor ipsum</p>
-                        <a class="link text-uppercase" href="/jamiyah/details">Go to Jamiyah! <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                </div>
+                <%}); %>
             </div>
         </div>
     </div>

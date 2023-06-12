@@ -52,7 +52,7 @@ exports.signInPage = (req, res) => {
 };
 
 exports.signInPagePost = passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/jamiyah/home",
   failureRedirect: "/auth/signin",
 });
 
