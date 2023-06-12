@@ -1,13 +1,15 @@
-exports.jamiyah_home_get = (req,res)=>{
+const Jamiyah = require('../models/jamiyah')
+
+exports.jamiyah_home_get = async (req,res)=>{
     //res.send(' Here is jamiyah/home')
-    res.render('jamiyah/home')
-}
+    try{
+        const jamiyahs = await Jamiyah.find(req.user)
 
-exports.jamiyah_details_get = (req,res)=>{
-    //res.send(' Here is jamiyah/details')
-    //Find jamaya of the id passed to url and expand its details
-
-    res.render('jamiyah/details')
+        res.render('jamiyah/home',  { jamiyahs })
+    } catch (error) {
+        console.log(error.message)
+        res.send('An error occurred')
+    }
 }
 
 exports.jamiyah_create_get = (req,res)=>{
@@ -15,10 +17,31 @@ exports.jamiyah_create_get = (req,res)=>{
     res.render('jamiyah/create')
 }
 
-exports.jamiyah_details_post = (req,res)=>{
-    //Find jamaya of the id passed to url and update/delete its details
+exports.jamiyah_create_post = (req, res) => {
+    console.log("here")
+    console.log(req.body)
+    const jamiyah = new Jamiyah(req.body)
+    jamiyah.participants = req.body.id
+    jamiyah.save()
+    .then(() => {
+        console.log('your Jamiyah has been saved')
+        res.redirect('/jamiyah/home')
+    })
+    .catch((err) => {
+        console.log('an error occurred', err)
+    })
 }
 
-exports.jamiyah_create_post = (req,res)=>{
-   //Save the data of jamiyah in DB
+
+exports.jamiyah_details_get = async (req,res)=>{
+    //res.send(' Here is jamiyah/details')
+    //Find jamaya of the id passed to url and expand its details
+    try{
+        const jamiyah = await Jamiyah.findById(req.query.id)
+        console.log(Jamiyah)
+    res.render('jamiyah/details', {jamiyah})
+    } catch (error) {
+        console.log(error.message)
+        res.send(error.message)
+    }
 }
