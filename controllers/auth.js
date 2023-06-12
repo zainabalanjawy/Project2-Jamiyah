@@ -3,8 +3,20 @@ const bcrypt = require("bcryptjs");
 const passport = require("../lib/passportConfig");
 const Account = require("../models/account");
 
+function generateRandomSecurityCode() {
+  const randomNumber = Math.floor(Math.random() * 90000) + 10000;
+
+  return String(randomNumber);
+}
+
 exports.signUpPage = (req, res) => {
-  res.render("auth/signup");
+  // res.render("auth/signup");
+
+  const securityCode = generateRandomSecurityCode();
+
+  res.render("auth/signup", {
+    securityCode: securityCode,
+  });
 };
 
 exports.signUpPagePost = async (req, res) => {

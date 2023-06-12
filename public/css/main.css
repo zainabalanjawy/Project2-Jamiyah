@@ -69,13 +69,14 @@ body {
 
 
 .login-main-text{
-    margin-top: 20%;
+    margin-top: 27%;
     padding: 60px;
     color: #fff;
 }
 
 .login-main-text h2{
     font-weight: 300;
+    font-size: 65px;
 }
 
 .btn-black{
@@ -263,7 +264,7 @@ nav a:hover{
 
 .hero{
     
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../imgs/time-is-money-business-financing-and-investment-concept-businessman-and-businesswoman-handshake-outline-design-minimal-illustration-for-landing-page-web-banner-infographics-hero-images-vector.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../imgs/time-is-money-business-financing-and-investment-concept-businessman-and-businesswoman-handshake-outline-design-minimal-illustration-for-landing-page-web-banner-infographics-hero-images-vector.jpg");
 
     /* Set a specific height */
     height: 725px;
@@ -302,4 +303,19 @@ nav a:hover{
     padding: 0 6px;
     border-radius: 10px;
     
+}
+
+.card-current {
+    width: 29% !important;
+    height: 200px;
+    border-radius: 30px;
+    background: #212121;
+    margin-top: 3%;
+    margin-left: 3%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.jamName{
+    padding: 15px;
 }
