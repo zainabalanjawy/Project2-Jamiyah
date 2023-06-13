@@ -1,24 +1,67 @@
-exports.jamiyah_home_get = (req,res)=>{
+const Jamiyah = require('../models/jamiyah')
+const User = require('../models/user')
+
+exports.jamiyah_home_get = async (req,res)=>{
     //res.send(' Here is jamiyah/home')
-    res.render('jamiyah/home')
+    try{
+        const jamiyahs = await Jamiyah.find({
+            'participants':{ $in: ([req.user._id])}}
+            )
+        res.render('jamiyah/home',  { jamiyahs })
+    } catch (error) {
+        console.log(error.message)
+        res.send('An error occurred')
+    }
 }
 
-exports.jamiyah_details_get = (req,res)=>{
+exports.jamiyah_create_get = async (req,res)=>{
+    //res.send(' Here is jamiyah/create')
+    const users = await User.find()
+    res.render('jamiyah/create', {users})
+}
+
+exports.jamiyah_create_post = (req, res) => {
+    console.log("here")
+    console.log(req.body)
+    const jamiyah = new Jamiyah(req.body)
+    // jamiyah.participants = req.body.id
+    jamiyah.save()
+    .then(() => {
+        console.log('your Jamiyah has been saved')
+        res.redirect('/jamiyah/home')
+    })
+    .catch((err) => {
+        console.log('an error occurred', err)
+    })
+}
+
+exports.jamiyah_details_get = async (req,res)=>{
     //res.send(' Here is jamiyah/details')
     //Find jamaya of the id passed to url and expand its details
-
-    res.render('jamiyah/details')
+    try{
+        const users = await User.find()
+        const jamiyah = await Jamiyah.findById(req.query.id)
+        console.log(Jamiyah)
+    res.render('jamiyah/details', {jamiyah, users})
+    } catch (error) {
+        console.log(error.message)
+        res.send(error.message)
+    }
 }
 
-exports.jamiyah_create_get = (req,res)=>{
-    //res.send(' Here is jamiyah/create')
-    res.render('jamiyah/create')
+exports.jamiyah_delete = async(req, res) => {
+    console.log(req.query.id)
+    try {
+        // Try to excute this code
+        await Jamiyah.findByIdAndDelete(req.query.id)
+        return res.redirect('/jamiyah/home')
+    } catch (error) {
+        // Execute this if there is an error
+        console.log(error.message)
+        res.send(error.message)
+    } finally {
+        //Execute this code no matter what
+        console.log('We are in the finally block')
+    }
 }
 
-exports.jamiyah_details_post = (req,res)=>{
-    //Find jamaya of the id passed to url and update/delete its details
-}
-
-exports.jamiyah_create_post = (req,res)=>{
-   //Save the data of jamiyah in DB
-}

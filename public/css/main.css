@@ -69,13 +69,14 @@ body {
 
 
 .login-main-text{
-    margin-top: 20%;
+    margin-top: 27%;
     padding: 60px;
     color: #fff;
 }
 
 .login-main-text h2{
     font-weight: 300;
+    font-size: 65px;
 }
 
 .btn-black{
@@ -241,8 +242,8 @@ nav a:hover{
 
 .register-home-links{
     text-align: center;
-    margin-top: 6%;
-    margin-right: 1%;
+    padding-top: 5%;
+    
 }
 
 .login-home , .signup-home{
@@ -251,21 +252,96 @@ nav a:hover{
     
 }
 
+.signup-home{
+    margin-left: 10px;
+}
+
 .login-home:hover , .signup-home:hover{
     background-color: #ffe100 !important;
     border-color: #ffe100!important;
     color: #000 !important;
 }
 
-.home-text{
-    text-align: center;
-    margin-top: 10%;
-    margin-left: 19%;
-    width: 60%;
+.hero{
+    
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../imgs/hero-img.jpg");
+    /* Set a specific height */
+    height: 725px;
+  
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    
 }
 
 .header-home{
-    color: #e8d900;
+    color: #ffee00;
     font-weight: bold;
     font-size: 90px;
+    padding-bottom: 4%;
+    
+}
+
+.hero-text{
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 10%;
+}
+
+.hero-description{
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.highlight{
+    background-color: #e8d900;
+    color: #000;
+    padding: 0 6px;
+    border-radius: 10px;
+    
+}
+
+.card-current {
+    width: 29% !important;
+    height: 200px;
+    border-radius: 30px;
+    background: #212121;
+    margin-top: 3%;
+    margin-left: 3%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.jamName{
+    padding: 15px;
+}
+
+.create-jam{
+    margin-left: 28%;
+    margin-top: 2%;
+}
+
+.create-submit{
+    margin-top: 3%;
+    color: #d5d5d5 !important;
+    font-weight: bold !important;
+    font-size: 20px !important;
+}
+
+.boldboy{
+    font-weight: bold;
+}
+
+.home-jam-box{
+    border-radius: 10px !important;
+    
+}
+
+.history-table{
+    width: 30% !important;
+    margin-left: 10%;
+    padding: 10px;
 }

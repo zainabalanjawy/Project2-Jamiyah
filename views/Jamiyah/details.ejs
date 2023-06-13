@@ -1,7 +1,231 @@
-<!-- <h1><% /*Jamiyah.name*/ %></h1>
+<style>
+    body
+    {
+        background-color: black;
+    }
+    .container
+    {
+    position: absolute;
+    display:block;
+    width: 80%;
+    height: 60%;
+    top: 40%;
+    left: 20%;
+    margin: -100px 0 0 -150px;
+    background: rgb(0, 0, 0);
+    color: white;
+    text-align: center;
+    
+    }
+   li
+    {
+        display:block
+    }
+    #name
+    {
+        color:  #e7e30c;
+        font-size: xx-large;
+        font-weight: bold;
+        margin-bottom: auto;
 
-<h2>The Duration is <%= /*Jamiyah.duration*/ %></h2>
+    }
+    #description 
+    {
+        margin-top: 0%;
+        font-style: italic;
+        
+    }
+    .timeline {
+    width:800px;
+    height: 20px;
+    list-style: none;
+    text-align: justify;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 45%, #d5d5d5 51%, rgba(255,255,255,0) 57%, rgba(255,255,255,0) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(45%, rgba(255,255,255,0)), color-stop(51%, #d5d5d5), color-stop(57%, rgba(255,255,255,0)), color-stop(100%, rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 45%, #d5d5d5 51%, rgba(255,255,255,0) 57%, rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 45%, #d5d5d5 51%, rgba(255,255,255,0) 57%, rgba(255,255,255,0) 100%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 45%, #d5d5d5 51%, rgba(255,255,255,0) 57%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 45%, #d5d5d5 51%, rgba(255,255,255,0) 57%, rgba(255,255,255,0) 100%);
+    }
 
-<h3>The Amount is <%= /*jamiyah.amount*/ %></h3> -->
+    .timeline:after {display: inline-block; content: ""; width: 100%;}
 
-<h1>THis is jamaya details</h1>
+    
+
+    .timeline li {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #d5d5d5;
+    text-align: center;
+    line-height: 1.2;
+    position: relative;
+    -webkit-border-radius: 50%;
+            border-radius: 50%;
+    }
+
+    .selected
+    {
+        background: #e7e30c !important;
+        font-weight: bold;
+        color: white;
+    }
+    .timeline li:before {
+    display: inline-block;
+    content: attr(data-year);
+    font-size: 26px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+    }
+
+    .timeline li:nth-child(odd):before {
+    top: -40px;
+    }
+    .timeline li:nth-child(even):before {
+        top: -40px;
+    }
+
+    .timeline li:after {
+    display: inline-block;
+    content: attr(data-text);
+    font-size: 16px;
+    position: absolute;
+    
+    -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+    }
+
+    .timeline li:nth-child(odd):after ,  .timeline li:nth-child(even):after {
+    bottom: 0;
+    margin-bottom: -10px;
+    -webkit-transform: translate(-50%, 100%);
+        -moz-transform: translate(-50%, 100%);
+        -ms-transform: translate(-50%, 100%);
+        -o-transform: translate(-50%, 100%);
+            transform: translate(-50%, 100%);
+    }
+    #number-data
+    {
+        display: flex;
+        position: absolute;
+        left: 30%;
+        top: 65%;
+    }
+    .button
+    {
+        display: flex;
+        position: absolute;
+        left: 48%;
+        top: 80%;
+    }
+    #duration, #monthly 
+    {
+        margin: 10px;
+        color: white;
+        font-size: larger;
+        font-weight: bold;
+    }
+    .highlited
+    {
+        margin: 10px;
+        background-color: #e7e30c;
+        color:black
+    }
+    .login
+    {
+        text-align: center;
+        color: white;
+        border-color: #e7e30c;
+        border-radius: 3vw;
+        background-color: #8c8c8c;
+    }
+    .login:hover
+    {
+        background-color: #8c8c8c;
+        border-radius: 3vw;
+        color: #e7e30c;
+    }
+</style>
+<div class="menu">
+    <div class="logo">
+        <a href="/"><img src="../../imgs/Jamiyah.png" alt="jamiyah logo"></a>
+    </div>
+    <div class="nav">
+        <nav class="icons">
+            <a href="/jamiyah/home"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="/jamiyah/create"><i class="fa fa-plus" aria-hidden="true"></i></a>
+            <a href="/user/profile"><i class="fa fa-user" aria-hidden="true"></i></a>
+        </nav>
+    </div>
+</div>
+
+<div class="body">
+
+    <div class="container">
+        <div>
+            <label id="name"> <%= jamiyah.name%> </label>
+        </div>
+        <div>
+            <label id="description"> <%= jamiyah.description%> </label>
+        </div>
+        
+        <div>
+            <ul class="timeline">
+                <li data-year="May"  data-text="Khalid"></li>
+                <li data-year="June" class="selected" data-text="Zainab"></li>
+                <li data-year="July" data-text="Maryam"></li>
+                <li data-year="August" data-text="Hussain"></li>
+
+            </ul> 
+        </div>
+        <div id="number-data">
+            <div id="duration">
+                <label>Duration: <span class="highlight"> <%= jamiyah.duration%> Months   </span></label>
+            
+            </div>
+           
+            <div id="monthly">
+                <label>     Contribution: <span class="highlight"><%= jamiyah.monthlyContribution%> BD<span></label>
+            </div>
+        </div>
+ 
+        <!-- <div>
+            <label>Participants</label>
+            <ul name = "participants" multiple>
+                <% jamiyah.participants.forEach(a => {%>
+                <% users.forEach(b => {%>
+                <% if(a.equals(b._id)) { %>
+                <li value="<%= b._id %>">
+                <%= b.email %> </li>
+                <%}}) %>
+                <%}) %>
+                </ul>
+        </div> -->
+        <div class="button">
+            <form method="POST" action="/jamiyah/delete?id=<%= jamiyah._id%>">
+                <button type="submit" class="login">DELETE</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+    <h5>©GA, Jamiyah. 2023. </h5>
+</div>

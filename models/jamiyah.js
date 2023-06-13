@@ -10,6 +10,9 @@ const jamiyahSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    startDate: {
+      type: Date,
+    },
     duration: {
       type: String,
       required: true,
@@ -22,12 +25,6 @@ const jamiyahSchema = mongoose.Schema(
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-      },
-    ],
-    account: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Account",
       },
     ],
   },
