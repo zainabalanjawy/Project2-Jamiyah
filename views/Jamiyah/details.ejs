@@ -174,35 +174,52 @@
         </nav>
     </div>
 </div>
-
-<div class="body">
-
-    <div class="container">
-        <div>
-            <label id="name"> <%= jamiyah.name%> </label>
-        </div>
-        <div>
-            <label id="description"> <%= jamiyah.description%> </label>
-        </div>
-        
-        <div>
-            <ul class="timeline">
-                <li data-year="May"  data-text="Khalid"></li>
-                <li data-year="June" class="selected" data-text="Zainab"></li>
-                <li data-year="July" data-text="Maryam"></li>
-                <li data-year="August" data-text="Hussain"></li>
-
-            </ul> 
-        </div>
-        <div id="number-data">
-            <div id="duration">
-                <label>Duration: <span class="highlight"> <%= jamiyah.duration%> Months   </span></label>
+         <div class="body">
             
+        <% if (jamiyah.startDate > today ) { %>
+            <!-- EDITING -->
+        <div class="container">
+            <form action="/jamiyah/details" method="POST">
+                <input id="name" name="name" value="<%= jamiyah.name%>" />
+                <input type='hidden' name="id" value="<%= jamiyah._id%>" />
+                <input id="description" name="description" value="<%= jamiyah.description%>"/>
+                <input class="highlight" name="duration" value="<%= jamiyah.duration%>"/>
+                <input class="highlight" name="monthlyContribution" value="<%= jamiyah.monthlyContribution%>"/>
+                <button type="submit" class="login">update</button>
+            </form>
+            <a href="/jamiyah/delete?id=<%= jamiyah._id%>">DELETE</a>
+        </div>
+            <% } else { %>
+            <!-- NOT EDITING -->
+        <div class="container">
+                <div>
+                    <label id="name"> <%= jamiyah.name%> </label>
+                </div>
+                <div>
+                    <label id="description"> <%= jamiyah.description%> </label>
+                </div>
+                
+                <div>
+                    <ul class="timeline">
+                        <li data-year="May"  data-text="Khalid"></li>
+                        <li data-year="June" class="selected" data-text="Zainab"></li>
+                        <li data-year="July" data-text="Maryam"></li>
+                        <li data-year="August" data-text="Hussain"></li>
+        
+                    </ul> 
+                </div>
+                <div id="number-data">
+                    <div id="duration">
+                        <label>Duration: <span class="highlight"> <%= jamiyah.duration%> Months </span></label>
+                    
+                    </div>
+                   
+                    <div id="monthly">
+                        <label>     Contribution: <span class="highlight"><%= jamiyah.monthlyContribution%> BD<span></label>
+                    </div>
+                </div>
             </div>
-           
-            <div id="monthly">
-                <label>     Contribution: <span class="highlight"><%= jamiyah.monthlyContribution%> BD<span></label>
-            </div>
+            <% } %>
         </div>
  
         <!-- <div>
@@ -216,15 +233,7 @@
                 <%}}) %>
                 <%}) %>
                 </ul>
-        </div> -->
-        <div class="button">
-            <form method="POST" action="/jamiyah/delete?id=<%= jamiyah._id%>">
-                <button type="submit" class="login">DELETE</button>
-            </form>
-        </div>
-
-    </div>
-</div>
+        </div> -->  
 
 <div class="footer">
     <h5>©GA, Jamiyah. 2023. </h5>
