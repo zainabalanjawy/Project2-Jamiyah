@@ -206,6 +206,7 @@
                         <li data-year="July" data-text="Maryam"></li>
                         <li data-year="August" data-text="Hussain"></li>
         
+
                     </ul> 
                 </div>
                 <div id="number-data">
@@ -218,6 +219,33 @@
                         <label>     Contribution: <span class="highlight"><%= jamiyah.monthlyContribution%> BD<span></label>
                     </div>
                 </div>
+
+        <div>
+            <% let month= jamiyah.startDate.getMonth() %>
+            <% let today= new Date().getMonth() %>
+            <ul class="timeline" name="participants">
+                <% jamiyah.participants.forEach(a => {%>
+                   
+                    <% users.forEach(b => {%>
+                    <% if(a.equals(b._id)) { %>
+                        <% if(today === month) { %>
+                    <li class="selected" value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.email %>"></li>
+                    <%} else{%>
+                    <li value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.email %>"></li> 
+                <%}}}) %>
+                    <% month++ %>
+                    <%}) %>
+            </ul>
+        </div>
+        <div id="number-data">
+            <div id="duration">
+                <label>Duration: <span class="highlight"> <%= jamiyah.duration%> Months   </span></label>
+            
+            </div>
+           
+            <div id="monthly">
+                <label>     Contribution: <span class="highlight"><%= jamiyah.monthlyContribution%> BD<span></label>
+
             </div>
             <% } %>
         </div>
@@ -234,6 +262,16 @@
                 <%}) %>
                 </ul>
         </div> -->  
+
+        <div class="button">
+            <form method="POST" action="/jamiyah/delete?id=<%= jamiyah._id%>">
+                <button type="submit" class="login">DELETE</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
 
 <div class="footer">
     <h5>©GA, Jamiyah. 2023. </h5>
