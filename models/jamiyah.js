@@ -10,6 +10,9 @@ const jamiyahSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    startDate: {
+      type: Date,
+    },
     duration: {
       type: String,
       required: true,

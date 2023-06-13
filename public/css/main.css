@@ -264,8 +264,7 @@ nav a:hover{
 
 .hero{
     
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../imgs/time-is-money-business-financing-and-investment-concept-businessman-and-businesswoman-handshake-outline-design-minimal-illustration-for-landing-page-web-banner-infographics-hero-images-vector.jpg");
-
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../imgs/hero-img.jpg");
     /* Set a specific height */
     height: 725px;
   
@@ -322,7 +321,7 @@ nav a:hover{
 
 .create-jam{
     margin-left: 28%;
-    margin-top: 4%;
+    margin-top: 2%;
 }
 
 .create-submit{
@@ -339,4 +338,10 @@ nav a:hover{
 .home-jam-box{
     border-radius: 10px !important;
     
+}
+
+.history-table{
+    width: 30% !important;
+    margin-left: 10%;
+    padding: 10px;
 }
