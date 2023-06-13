@@ -17,7 +17,7 @@
         <h1>My Jamiyah's</h1>
     </div>
     <div class="container-fluid service position-relative px-5 mt-5" style="margin-bottom: 135px;">
-        <div class="container">
+        <div class="container ">
             <div class="row g-5">
                 <% jamiyahs.forEach(a => {%>
                 
@@ -26,7 +26,7 @@
                         <h4 class="text-uppercase mb-3"> <%= a.name %></h4>
                         <p> <%= a.description %></p>
                         <h2> BD <%= a.monthlyContribution %></h2>
-                        <a class="link text-uppercase" href="/jamiyah/details?id=<%= a._id %>">Go to Jamiyah! <i class="bi bi-arrow-right"></i></a>
+                        <a class="link text-uppercase" href="/jamiyah/details?id=<%= a._id %>">Show Details <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
                 <%}); %>
@@ -35,15 +35,6 @@
     </div>
 </div> 
 
-<!-- <div class="header">
-    <h1>My Jamiyah's</h1>
-</div>
-
-<div class="card-current">
-    <h4 class="text-uppercase mb-3 jamName">Jamiyah Name</h4>
-    
-
-</div> -->
 
 <div class="footer">
     <h5>©GA, Jamiyah. 2023. </h5>
