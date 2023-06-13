@@ -225,15 +225,16 @@
             <% let today= new Date().getMonth() %>
             <ul class="timeline" name="participants">
                 <% jamiyah.participants.forEach(a => {%>
-                   
+                    <% month++ %>
                     <% users.forEach(b => {%>
                     <% if(a.equals(b._id)) { %>
-                        <% if(today === month) { %>
+                        <% if(today+1 === month) { %>
+                           
                     <li class="selected" value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.email %>"></li>
                     <%} else{%>
                     <li value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.email %>"></li> 
                 <%}}}) %>
-                    <% month++ %>
+                   
                     <%}) %>
             </ul>
         </div>
