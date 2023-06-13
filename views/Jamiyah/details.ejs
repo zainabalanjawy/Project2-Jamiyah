@@ -186,13 +186,21 @@
         </div>
         
         <div>
-            <ul class="timeline">
-                <li data-year="May"  data-text="Khalid"></li>
-                <li data-year="June" class="selected" data-text="Zainab"></li>
-                <li data-year="July" data-text="Maryam"></li>
-                <li data-year="August" data-text="Hussain"></li>
-
-            </ul> 
+            <% let month= jamiyah.startDate.getMonth() %>
+            <% let today= new Date().getMonth() %>
+            <ul class="timeline" name="participants">
+                <% jamiyah.participants.forEach(a => {%>
+                   
+                    <% users.forEach(b => {%>
+                    <% if(a.equals(b._id)) { %>
+                        <% if(today === month) { %>
+                    <li class="selected" value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.email %>"></li>
+                    <%} else{%>
+                    <li value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.email %>"></li> 
+                <%}}}) %>
+                    <% month++ %>
+                    <%}) %>
+            </ul>
         </div>
         <div id="number-data">
             <div id="duration">
@@ -204,19 +212,6 @@
                 <label>     Contribution: <span class="highlight"><%= jamiyah.monthlyContribution%> BD<span></label>
             </div>
         </div>
- 
-        <!-- <div>
-            <label>Participants</label>
-            <ul name = "participants" multiple>
-                <% jamiyah.participants.forEach(a => {%>
-                <% users.forEach(b => {%>
-                <% if(a.equals(b._id)) { %>
-                <li value="<%= b._id %>">
-                <%= b.email %> </li>
-                <%}}) %>
-                <%}) %>
-                </ul>
-        </div> -->
         <div class="button">
             <form method="POST" action="/jamiyah/delete?id=<%= jamiyah._id%>">
                 <button type="submit" class="login">DELETE</button>
