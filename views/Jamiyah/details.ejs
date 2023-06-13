@@ -1,13 +1,8 @@
-<!-- <h1><% /*Jamiyah.name*/ %></h1>
-
-<h2>The Duration is <%= /*Jamiyah.duration*/ %></h2>
-
-<h3>The Amount is <%= /*jamiyah.amount*/ %></h3> -->
 <style>
-    /* body
+    body
     {
         background-color: black;
-    } */
+    }
     .container
     {
     position: absolute;
@@ -20,8 +15,7 @@
     background: rgb(0, 0, 0);
     color: white;
     text-align: center;
-    border-color: white;
-    border-style: solid;
+    
     }
    li
     {
@@ -174,7 +168,7 @@
     </div>
     <div class="nav">
         <nav class="icons">
-            <a href="/"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="/jamiyah/home"><i class="fa fa-home" aria-hidden="true"></i></a>
             <a href="/jamiyah/create"><i class="fa fa-plus" aria-hidden="true"></i></a>
             <a href="/user/profile"><i class="fa fa-user" aria-hidden="true"></i></a>
         </nav>
@@ -202,12 +196,12 @@
         </div>
         <div id="number-data">
             <div id="duration">
-                <label>Duration: <span class="highlited"> <%= jamiyah.duration%> Months   </span></label>
+                <label>Duration: <span class="highlight"> <%= jamiyah.duration%> Months   </span></label>
             
             </div>
            
             <div id="monthly">
-                <label>     Contribution: <span class="highlited"><%= jamiyah.monthlyContribution%> BD<span></label>
+                <label>     Contribution: <span class="highlight"><%= jamiyah.monthlyContribution%> BD<span></label>
             </div>
         </div>
  
