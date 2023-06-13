@@ -199,16 +199,6 @@
                     <label id="description"> <%= jamiyah.description%> </label>
                 </div>
                 
-                <div>
-                    <ul class="timeline">
-                        <li data-year="May"  data-text="Khalid"></li>
-                        <li data-year="June" class="selected" data-text="Zainab"></li>
-                        <li data-year="July" data-text="Maryam"></li>
-                        <li data-year="August" data-text="Hussain"></li>
-        
-
-                    </ul> 
-                </div>
                 <div id="number-data">
                     <div id="duration">
                         <label>Duration: <span class="highlight"> <%= jamiyah.duration%> Months </span></label>
@@ -230,9 +220,9 @@
                     <% if(a.equals(b._id)) { %>
                         <% if(today+1 === month) { %>
                            
-                    <li class="selected" value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.email %>"></li>
+                    <li class="selected" value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.name %>"></li>
                     <%} else{%>
-                    <li value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.email %>"></li> 
+                    <li value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.name %>"></li> 
                 <%}}}) %>
                    
                     <%}) %>

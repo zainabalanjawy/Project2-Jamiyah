@@ -14,13 +14,10 @@ exports.user_profile_post = async (req, res) => {
   try {
     console.log(req.body);
     const UserId = req.body.id;
-    const hash = bcrypt.hashSync(req.body.password, 10);
-    console.log(`Hashed Password: ${hash}`);
     await User.findByIdAndUpdate(UserId, {
+      name: req.body.name,
       email: req.body.email,
       phone: req.body.phone,
-      password: hash,
-      confirmPassword: hash,
     });
 
     res.redirect("/user/profile");
