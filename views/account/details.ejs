@@ -26,11 +26,15 @@
             </div>
                 <div class="col-lg-8 col-md-8">
                     <div class="card-bg border-inner text-white p-5">
-                 
-                        <h4 class="text-uppercase mb-3">Account DETAILS</h4>
-                        <a href="/account/balance"><button>Balance</button></a>
-                        <a href="/account/update"><button>Update</button></a>
-                        <a href="/account/delete"><button>Delete</button></a>
+                                 <h4 class="text-uppercase mb-3">Account DETAILS</h4>
+                        <form action = "/account/details" method= "post">
+                            <input type="number" name="balance" value="<%= account[0].balance %>">
+                            <input type="hidden" name="id" value="<%= account[0]._id %>">
+                           
+                            <input type="submit" value="update">
+                        </form>
+               
+                      <a href="/account/delete?id=<%=account[0]._id%>"><button>Delete</button></a>
                         
                     </div>
                 </div>
