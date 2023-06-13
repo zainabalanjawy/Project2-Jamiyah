@@ -61,7 +61,7 @@ exports.jamiyah_details_get = async (req,res)=>{
 exports.jamiyah_details_post = async (req,res)=>{
     try{
         console.log(req.body)
-      await Jamiyah.findByIdAndUpdate(req.query.id, req.body)
+      await Jamiyah.findByIdAndUpdate(req.body.id,req.body)
         res.redirect('/jamiyah/home')
     } catch (error) {
             console.log(error.message)

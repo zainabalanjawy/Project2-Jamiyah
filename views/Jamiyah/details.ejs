@@ -1,8 +1,59 @@
+
 <style>
-    body
-    {
-        background-color: black;
+    body{
+        background-color: rgb(0, 0, 0);
     }
+
+    .history-section h1{
+        padding: 1vw;
+    }
+    .container-profile
+    {
+        display: flex;
+        
+    }
+    .profile-section
+    {
+        background-color: rgb(0, 0, 0);
+        height: 30vw;
+        width: 30%;
+        color: white;
+    }
+    .history-section
+    {
+        width: 70%;
+        border-style: solid;
+        border-color: lightgrey;
+        text-align: center;
+    }
+    .login 
+    {
+        text-align: center;
+        color: #e7e30c;
+    }
+    .login:hover
+    {
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    }
+    .link-functions
+    {
+        text-align: center;
+    }
+    .logout
+    {
+        background-color: rgb(0, 0, 0);
+        padding: 0.4vw;
+        color: #e7e30c;
+    }
+    .logout:hover
+    {
+        background-color: rgb(0, 0, 0);
+        padding: 0.4vw;
+        color: white;
+    }
+
     .container
     {
     position: absolute;
@@ -145,7 +196,8 @@
     {
         margin: 10px;
         background-color: #e7e30c;
-        color:black
+        color:black; 
+        text-align: center;
     }
     .login
     {
@@ -161,6 +213,17 @@
         border-radius: 3vw;
         color: #e7e30c;
     }
+    form 
+    {
+        height:450px;
+        width: 800px;
+        overflow-y:auto;
+        
+        margin-left: 20vw;
+        margin-right: 20vw;
+        
+    }
+
 </style>
 <div class="menu">
     <div class="logo">
@@ -174,21 +237,74 @@
         </nav>
     </div>
 </div>
-         <div class="body">
+        
             
         <% if (jamiyah.startDate > today ) { %>
             <!-- EDITING -->
-        <div class="container">
+            <div class="body">
+                <div class="header">
+                    <h2 class="highlited"> <%= jamiyah.name  %></h2>
+                </div>
+            
+            
+                <div class="container-profile">
+                    <div class="profile-section">
+                        <div >
+                            <form action="/jamiyah/details" method="post" class="user-info">
+                                <div class="form-group">
+                                    <label class="boldboy">Jamiyah name</label>
+                                    <input type="text" name="name" value="<%=jamiyah.name%>" class="form-control" placeholder="Name">
+                                 </div>
+                               <div class="form-group">
+                                  <label class="boldboy">Description</label>
+                                  <input type="text" name="description" value="<%=jamiyah.description %>" class="form-control" placeholder="Email">
+                               </div>
+                               <div class="form-group">
+                                  <label class="boldboy">Start Date:</label>
+                                  
+                                  <input type="text" name="startDate" value="<%=jamiyah.startDate %>" class="form-control" placeholder="Phone">
+                               </div>
+                               <div class="form-group">
+                                <label class="boldboy">Duration</label>
+                                <input type="text" name="duration" value="<%=jamiyah.duration %>" class="form-control" placeholder="Phone">
+                             </div>
+                             <div class="form-group">
+                                <label class="boldboy">Monthly Contribution</label>
+                                <input type="number" name="monthlyContribution" value="<%=jamiyah.monthlyContribution %>" class="form-control" placeholder="Phone">
+                             </div>
+                             <div class="form-group">
+                                <label class="boldboy">Participants</label>
+                                <select name = "participants" multiple class="form-control">
+                                    <% users.forEach(a => {%>
+                                    <option value="<%= a._id %>">
+                                    <%= a.email %> </option>
+                                    <%}); %>
+                                </select>
+                             </div>
+                               <div>
+                                <input type='hidden' name="id" value="<%= jamiyah._id%>" />
+                               </div>
+                               <div class="link-functions">
+                                <input type="submit" value="Update" class="login">
+                                <a class="login logout" href="/jamiyah/delete?id=<%= jamiyah._id%>">DELETE</a>
+                               </div>
+                            </form>
+                            
+                         </div>
+                    </div>
+                </div>
+            </div>
+        <!-- <div class="container">
             <form action="/jamiyah/details" method="POST">
                 <input id="name" name="name" value="<%= jamiyah.name%>" />
                 <input type='hidden' name="id" value="<%= jamiyah._id%>" />
                 <input id="description" name="description" value="<%= jamiyah.description%>"/>
                 <input class="highlight" name="duration" value="<%= jamiyah.duration%>"/>
                 <input class="highlight" name="monthlyContribution" value="<%= jamiyah.monthlyContribution%>"/>
-                <button type="submit" class="login">update</button>
+                <button type="submit" class="login">UPDATE</button>
             </form>
             <a href="/jamiyah/delete?id=<%= jamiyah._id%>">DELETE</a>
-        </div>
+        </div> -->
             <% } else { %>
             <!-- NOT EDITING -->
         <div class="container">
@@ -254,14 +370,14 @@
                 </ul>
         </div> -->  
 
-        <div class="button">
+        <!-- <div class="button">
             <form method="POST" action="/jamiyah/delete?id=<%= jamiyah._id%>">
                 <button type="submit" class="login">DELETE</button>
             </form>
-        </div>
+        </div> -->
 
     </div>
-</div>
+
 
 
 <div class="footer">
