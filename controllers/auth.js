@@ -30,6 +30,7 @@ exports.signUpPagePost = async (req, res) => {
     user.password = hash;
     user.confirmPassword = hash;
 
+    user.profileImage = "/uploads/" + req.file.filename;
     if (req.body.password !== req.body.confirmPassword) {
       return res.status(400).send("Passwords do not match");
     }

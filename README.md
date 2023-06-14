@@ -1,21 +1,21 @@
 
 # Project02 - Jamiyah
-<img src="../Project2-Jamiyah/public/imgs/Jamiyah.png" alt="jamiyah logo" style="align-content=center">
+![](../Project2-Jamiyah/public/imgs/Jamiyah.png)
 
 
 ## Table of contents
-1. [Introduction](##Introduction)
-    * [1.2 Purpose](###Purpose)
-2. [Technologies](###Technologies)
-3. [Design](##Design)
-    * [3.1 Wireframe](###Wireframe)
-    * [3.2 UserStories](###UserStories)
-4. [Planning](##Planning)
-5. [Development](##Development)
-    * [5.1 Instructions](##Instructions)
-    * [5.2 Functions](##Functions)
-6. [Future work](##Futurework)
-7. [Resources](##Resources)
+1. [Introduction](#Introduction)
+    * [1.2 Purpose](#Purpose)
+2. [Technologies](#Technologies)
+3. [Design](#Design)
+    * [3.1 Wireframe](#Wireframe)
+    * [3.2 UserStories](#UserStories)
+4. [Planning](#Planning)
+5. [Development](#Development)
+    * [5.1 Definition](#Definition)
+    * [5.2 Functions](#Functions)
+6. [Future work](#Futurework)
+7. [Resources](#Resources)
 
 
 ## Introduction
@@ -48,87 +48,103 @@
 <hr>
 
 ### Wireframe
-##### A basic design for the game, it contains the process starting from the start modal, moving through the game and ending by the result modal.
+##### A basic design for Jamiyah, it contains account authorization, a process of creating updating and deleting Jamiyah's. viewing and updating user profile. furthermore, account balance can be viewd.
 
-![Wireframe](/imgs/wireframe.png)
+![Wireframe](../Project2-Jamiyah/public/imgs/Jamiyah-wireframe.png)
 <br>
 <br>
 
 ### UserStories
 ##### A user story is a general explanation of functionalities written from the perspective of the user. It moves through differnt process till it reach to the testing and the deployment part. 
 
-![Wireframe](/imgs/userStories.png)
+![Wireframe](../Project2-Jamiyah/public/imgs/Jamiyah-userstories.png)
 <br>
 
 ### Planning
-##### The planning part started with structure the components needed for the HTML file. Then, a list of css properties where applied for each of the elements declered in the HTML file. Finally, it ended with the logical part, which is applying the functions on the elements declered. 
+##### The planning part started with structure the components needed for the views and controllers file. Then, a list of css properties where applied for each of the elements declered in the views and controllers file. Finally, it ended with the logical part, which is applying the functions on the elements declered. 
 <br>
 
 ## Development
 <hr>
 
-### Instructions
-##### A list of instructions where given to the user to declare the idea, which are basicly the main functions of the game. The developer has to logicly declare and apply them.
+### Definition
+##### A graph of definitions where given to the user to declare the idea, which are basicly the main functions of the app. The developer has to logicly declare and apply them.
+##### 1. The user signup then signin to access jamyia. 
+##### 2. The user must create, view, update or delete jamaya if it not started.  
+##### 3. The user must view, update, or delete the account balance. 
+##### 4. The user must view or update his profile. 
+##### 5. The user must logout from the system. 
 <br>
 
 ### Functions
-##### In the Javascript file, a list of functions where executed, which are:
-##### 1. Set the turn depanding on the icon choice. 
-##### 2. Roll the dice.
-##### 3. Move the counter depending on number shown on the dice.
-##### 4. Move the counter up when landing on a ladder.
-##### 5. Move the counter down when landing on a snake.
-##### 6. Show the winner when reach to the crown counter. 
+##### In the controller file, a list of functions where executed, which are:
+##### 1. Signup, Signin, signout, and forget password. 
+##### 2. Create, update, and delete Jamiyah.
+##### 3. View jamiyah details.
+##### 4. View and edit user profile
+##### 5. View and edit user account balance.
 
 ##### Some of functions where needed to apply a problem-solving strategy like: 
-##### 1. Picking a random number when rolling the dice. 
-  ```sh
-  function rollDice()
-{
-    let roll = Math.floor(Math.random()*6)+1;
-   return roll
-}
-  ```
+##### 1. Image uplaod function. 
+ `const multer = require('multer');
+ var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './public/uploads/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now() + '-' + file.originalname)
+    }
+  })
+  let upload = multer({ storage: storage })`
 
-##### 2. Move the counter need to check the postion for the rows and coloumns, then call the function in a loop. 
-  ```sh
-if(getTurnIcon.position().left<num)
-{
-getTurnIcon.animate({"top":"-=80px"},function(){
-moveIcon(getTurnIcon,++counter,num)}});
-}
-        
-  ```
-
-##### 3. Adding audio file to play when roll the dice. 
-  ```sh
-var roll_sound = document.createElement('audio');
-roll_sound.setAttribute('src', '/sounds/roll.mp3');
-
- roll_sound.play()
-        
-  ```
-
-##### 4. Adding effects on buttons when hover
-  ```sh
-#start-btn{
-    background-color:#430d4b;
-    color: #f5d5e0;
-    width: 10vw;
-    height: 2vw;
-    margin: 10px;
-}
-#start-btn:hover {
-    background-color: #a14ca4;
+##### 2.viewing User history 
+`const updateEndedJamiyahs = async function () {
+  const jamiyahs = await Jamiyah.find({ isEnded: false });
+  const now = new Date();
+  for (const jamiyah of jamiyahs) {
+    if (jamiyah.endDate <= now) {
+      jamiyah.isEnded = true;
+      await History.create({
+        jamiyah: jamiyah._id,
+        endDate: jamiyah.endDate,
+      });
+      await jamiyah.save();
+    }
   }
-        
-  ```
+};`
+
+##### 3. show participants turn in each months.
+`<ul class="timeline" name="participants">
+                <% jamiyah.participants.forEach(a => {%>
+                    <% month++ %>
+                    <% users.forEach(b => {%>
+                    <% if(a.equals(b._id)) { %>
+                        <% if(today+1 === month) { %>
+                    <li class="selected" value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.name %>"></li>
+                    <%} else{%>
+                    <li value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.name %>"></li>
+                <%}}}) %>
+                    <%}) %>
+            </ul>`
+
+##### 4.To take id user from htps query
+`const jamiyah = await Jamiyah.findById(req.query.id);`
+
+##### 5. Unique Random generator for a unique security code
+`exports.signUpPage = (req, res) => {
+  const securityCode = generateRandomSecurityCode();
+  res.render(“auth/signup”, {
+    securityCode: securityCode,
+  });
+};`
 ## Futurework
 <hr>
 
-##### 1. Apply AI technologies to let the player play with the computer.  
-##### 2. Use Local storage to save data locally to allow websites to continue after page refresh or loss of internet connectivity. 
-##### 3. Add extra icons for players using Font awsome Library  
+##### 1. Implement A Payment Gateway, and automatic payments.   
+##### 2. Alerts to inform when actions succeed or fail.
+##### 3. Add a search bar. 
+##### 4. Handling Edge Cases on things like duration or amount inputs. 
+##### 5. Make adding participants with an invite to give the choice of accepting or reclining the Jamiyah.
 
 <br>
 
