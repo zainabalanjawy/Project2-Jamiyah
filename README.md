@@ -81,7 +81,7 @@
 
 ##### Some of functions where needed to apply a problem-solving strategy like: 
 ##### 1. Image uplaod function. 
- const multer = require('multer');
+ `const multer = require('multer');
  var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, './public/uploads/')
@@ -90,7 +90,7 @@
       cb(null, file.fieldname + '-' + Date.now() + '-' + file.originalname)
     }
   })
-  let upload = multer({ storage: storage })
+  let upload = multer({ storage: storage })`
 
 ##### 2.viewing User history 
 const updateEndedJamiyahs = async function () {
