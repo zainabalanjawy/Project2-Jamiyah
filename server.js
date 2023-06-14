@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const expressLayouts = require("express-ejs-layouts");
@@ -57,7 +58,7 @@ app.listen(port, function () {
 });
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/jamiyah-DB", {
+  .connect(process.env.DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
