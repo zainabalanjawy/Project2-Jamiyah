@@ -126,6 +126,12 @@
 `const jamiyah = await Jamiyah.findById(req.query.id);`
 
 ##### 5. Unique Random generator for a unique security code
+`exports.signUpPage = (req, res) => {
+  const securityCode = generateRandomSecurityCode();
+  res.render(“auth/signup”, {
+    securityCode: securityCode,
+  });
+};`
 ## Futurework
 <hr>
 
