@@ -10,8 +10,6 @@ function generateRandomSecurityCode() {
 }
 
 exports.signUpPage = (req, res) => {
-  // res.render("auth/signup");
-
   const securityCode = generateRandomSecurityCode();
 
   res.render("auth/signup", {
