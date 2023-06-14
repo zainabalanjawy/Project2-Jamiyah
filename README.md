@@ -123,7 +123,7 @@
             </ul>`
 
 ##### 4.To take id user from htps query
-const jamiyah = await Jamiyah.findById(req.query.id);
+`const jamiyah = await Jamiyah.findById(req.query.id);`
 
 ##### 5. Unique Random generator for a unique security code
 ## Futurework
