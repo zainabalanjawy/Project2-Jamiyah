@@ -1,5 +1,6 @@
 const Jamiyah = require("../models/jamiyah");
 const User = require("../models/user");
+const History = require("../models/history");
 
 exports.jamiyah_home_get = async (req, res) => {
   //res.send(' Here is jamiyah/home')
@@ -43,7 +44,7 @@ exports.jamiyah_details_get = async (req, res) => {
     const users = await User.find();
     const today = new Date();
     const jamiyah = await Jamiyah.findById(req.query.id);
-    console.log("jam details get: ", jamiyah);
+    // console.log("jam details get: ", jamiyah);
     res.render("jamiyah/details", { jamiyah, users, today });
     // console.log(req.query.isEditing)
 
@@ -86,33 +87,16 @@ exports.jamiyah_delete = async (req, res) => {
   }
 };
 
-exports.jamiyah_history = (req, res) => {
-  res.render("jamiyah/history");
+exports.jamiyah_history = async (req, res) => {
+  try {
+    const jamiyahs = await Jamiyah.find({ isEnded: true }).populate({
+      path: "/jamiyah/history",
+      populate: {
+        path: "/jamiyah/history",
+      },
+    });
+    res.render("jamiyah/history", { jamiyahs });
+  } catch (error) {
+    next(error);
+  }
 };
-
-// exports.jamiyahs_home_filter = async (req, res) => {
-//   try {
-//     const jamiyahs = await Jamiyah.find();
-
-//     const homeJamiyahs = jamiyahs.filter(
-//       (jamiyah) => jamiyah.path === "/jamiyah/home"
-//     );
-
-//     res.render("jamiyah/home", { homeJamiyahs });
-//   } catch (error) {
-//     res.status(500).render("error", { message: error.message });
-//   }
-// };
-// exports.jamiyahs_history_filter = async (req, res) => {
-//   try {
-//     const jamiyahs = await Jamiyah.find();
-
-//     const historyJamiyahs = jamiyahs.filter(
-//       (jamiyah) => jamiyah.path === "/jamiyah/history"
-//     );
-
-//     res.render("jamiyah/history", { historyJamiyahs });
-//   } catch (error) {
-//     res.status(500).render("error", { message: error.message });
-//   }
-// };
