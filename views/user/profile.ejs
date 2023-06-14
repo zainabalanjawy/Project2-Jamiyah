@@ -1,4 +1,8 @@
 <style>
+    body{
+        background-color: rgb(0, 0, 0);
+    }
+
     .history-section h1{
         padding: 1vw;
     }
@@ -38,13 +42,13 @@
     }
     .logout
     {
-        background-color: grey;
+        background-color: rgb(0, 0, 0);
         padding: 0.4vw;
         color: #e7e30c;
     }
     .logout:hover
     {
-        background-color: grey;
+        background-color: rgb(0, 0, 0);
         padding: 0.4vw;
         color: white;
     }
@@ -62,7 +66,48 @@
     </div>
 </div>
 
+
 <div class="body">
+    <div class="header">
+        <h1 class="highlight"> <%= currentUser.name  %> Profile</h1>
+    </div>
+
+
+    <div class="container-profile">
+        <div class="profile-section">
+            <div class="signup-form">
+                <form action="/user/profile" method="post" class="user-info">
+                    <div class="form-group">
+                        <label class="boldboy">Name</label>
+                        <input type="text" name="name" value="<%= currentUser.name %>" class="form-control" placeholder="Name">
+                     </div>
+                   <div class="form-group">
+                      <label class="boldboy">Email Address</label>
+                      <input type="email" name="email" value="<%= currentUser.email %>" class="form-control" placeholder="Email">
+                   </div>
+                   <div class="form-group">
+                      <label class="boldboy">Phone</label>
+                      <input type="text" name="phone" value="<%= currentUser.phone %>" class="form-control" placeholder="Phone">
+                   </div>
+                   <div>
+                    <input type="hidden" value="<%= currentUser._id %>" name="id">
+                   </div>
+                   <div class="link-functions">
+                    <a class="login" href="/account/details">Balance</a>
+                    <input type="submit" value="Update" class="login">
+                    <a class="login logout" href="/auth/signout">Logout</a>
+                   </div>
+                </form>
+             </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <h5>©GA, Jamiyah. 2023. </h5>
+</div>
+
+<!-- <div class="body">
     <div class="header">
         <h1>User Profile</h1>
     </div>
@@ -92,7 +137,7 @@
                    </div>
                 </form>
              </div>
-        </div>
+        </div> -->
         <!-- <div class="history-section">
             <h1>Jamiyah's History</h1>
             <div class="container">
@@ -122,7 +167,7 @@
             </div>
         </div> -->
 
-        <table class="table table-striped table-dark history-table">
+        <!-- <table class="table table-striped table-dark history-table">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
@@ -145,4 +190,4 @@
 
 <div class="footer">
     <h5>©GA, Jamiyah. 2023. </h5>
-</div>
+</div> -->

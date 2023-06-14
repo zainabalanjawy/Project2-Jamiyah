@@ -8,6 +8,12 @@ const userSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
+    name:
+    {
+      type: String,
+      required: true,
+      unique:true
+    },
     phone: {
       type: String,
       required: true,
@@ -41,3 +47,4 @@ userSchema.methods.verifyPassword = function (password) {
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
+
