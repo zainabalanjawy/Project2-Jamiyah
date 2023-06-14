@@ -48,6 +48,10 @@ app.use("/", jamiyahRoute);
 app.use("/", userRoute);
 app.use("/", accountRoute);
 
+const { updateEndedJamiyahs } = require("./models/history");
+
+setInterval(updateEndedJamiyahs, 24 * 60 * 60 * 1000); // run once a day
+
 app.listen(port, function () {
   console.log("Server running on port 4007");
 });

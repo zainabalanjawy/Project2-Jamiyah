@@ -27,11 +27,28 @@ const jamiyahSchema = mongoose.Schema(
         ref: "User",
       },
     ],
+    isEnded: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
   }
 );
+
+jamiyahSchema.virtual("endDate").get(function () {
+  if (!this.startDate || !this.duration) {
+    return null;
+  }
+  const [number, unit] = this.duration.split(" ");
+  if (unit.toLowerCase() !== "months") {
+    return null;
+  }
+  const end = new Date(this.startDate);
+  end.setMonth(end.getMonth() + parseInt(number));
+  return end;
+});
 
 const Jamiyah = mongoose.model("Jamiyah", jamiyahSchema);
 module.exports = Jamiyah;

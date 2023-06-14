@@ -8,6 +8,7 @@
     }
     body{
         background-color: rgb(0, 0, 0);
+        text-align: center;
     }
 
     .history-section h1{
@@ -16,6 +17,7 @@
     .container-profile
     {
         display: flex;
+        padding-left: 13%;
         
     }
     .profile-section
@@ -59,6 +61,21 @@
         padding: 0.4vw;
         color: white;
     }
+
+    .user-info{
+        margin-left: 5%;
+        
+    }
+    .container-profile{
+        margin-left: 20%;
+        margin-top: 5%;
+    }
+
+    .profile-section{
+        margin-left: 10%;
+    }
+
+
 </style>
 <div class="menu">
     <div class="logo">
@@ -103,6 +120,7 @@
                    <div class="link-functions">
                     <a class="login" href="/account/details">Balance</a>
                     <input type="submit" value="Update" class="login">
+                    <a class="login" href="/jamiyah/history">History</a>
                     <a class="login logout" href="/auth/signout">Logout</a>
                    </div>
                 </form>
@@ -115,87 +133,3 @@
     <h5>©GA, Jamiyah. 2023. </h5>
 </div>
 
-<!-- <div class="body">
-    <div class="header">
-        <h1>User Profile</h1>
-    </div>
-    <div class="container-profile">
-        <div class="profile-section">
-            <div class="signup-form">
-                <form action="/user/profile" method="post">
-                   <div class="form-group">
-                      <label>Email Address</label>
-                      <input type="email" name="email" value="<%= currentUser.email %>" class="form-control" placeholder="Email">
-                   </div>
-                   <div class="form-group">
-                      <label>Phone</label>
-                      <input type="text" name="phone" value="<%= currentUser.phone %>" class="form-control" placeholder="Phone">
-                   </div>
-                   <div class="form-group">
-                      <label>Password</label>
-                      <input type="password" name="password" value="<%= currentUser.password %>" class="form-control" placeholder="Password">
-                   </div>
-                   <div>
-                    <input type="hidden" value="<%= currentUser._id %>" name="id">
-                   </div>
-                   <div class="link-functions">
-                    <a class="login" href="/account/details">Balance</a>
-                    <input type="submit" value="Update" class="login">
-                    <a class="login logout" href="/auth/signout">logout</a>
-                   </div>
-                </form>
-             </div>
-        </div> -->
-        <!-- <div class="history-section">
-            <h1>Jamiyah's History</h1>
-            <div class="container">
-                <div class="row g-5">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card-bg border-inner text-white p-5">
-                            <h4 class="text-uppercase mb-3">Jamiyah Name</h4>
-                            <p>Jamiyah description :Ipsum ipsum  sea eirmod diam stet sit justo amet tempor amet kasd lorem dolor ipsum</p>
-                            <a class="link text-uppercase" href="/jamiyah/details">Go to Jamiyah! <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card-bg border-inner text-white p-5">
-                            <h4 class="text-uppercase mb-3">Jamiyah Name</h4>
-                            <p>Jamiyah description :Ipsum ipsum  sea eirmod diam stet sit justo amet tempor amet kasd lorem dolor ipsum</p>
-                            <a class="link text-uppercase" href="/jamiyah/details">Go to Jamiyah! <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card-bg border-inner text-white p-5">
-                            <h4 class="text-uppercase mb-3">Jamiyah Name</h4>
-                            <p>Jamiyah description :Ipsum ipsum  sea eirmod diam stet sit justo amet tempor amet kasd lorem dolor ipsum</p>
-                            <a class="link text-uppercase" href="/jamiyah/details">Go to Jamiyah! <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-        <!-- <table class="table table-striped table-dark history-table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-              </tr>
-            </tbody>
-          </table>
-
-
-    </div>
-</div>
-
-<div class="footer">
-    <h5>©GA, Jamiyah. 2023. </h5>
-</div> -->
