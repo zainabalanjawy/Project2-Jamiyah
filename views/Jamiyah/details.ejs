@@ -294,17 +294,7 @@
                     </div>
                 </div>
             </div>
-        <!-- <div class="container">
-            <form action="/jamiyah/details" method="POST">
-                <input id="name" name="name" value="<%= jamiyah.name%>" />
-                <input type='hidden' name="id" value="<%= jamiyah._id%>" />
-                <input id="description" name="description" value="<%= jamiyah.description%>"/>
-                <input class="highlight" name="duration" value="<%= jamiyah.duration%>"/>
-                <input class="highlight" name="monthlyContribution" value="<%= jamiyah.monthlyContribution%>"/>
-                <button type="submit" class="login">UPDATE</button>
-            </form>
-            <a href="/jamiyah/delete?id=<%= jamiyah._id%>">DELETE</a>
-        </div> -->
+  
             <% } else { %>
             <!-- NOT EDITING -->
         <div class="container">
@@ -357,24 +347,7 @@
             <% } %>
         </div>
  
-        <!-- <div>
-            <label>Participants</label>
-            <ul name = "participants" multiple>
-                <% jamiyah.participants.forEach(a => {%>
-                <% users.forEach(b => {%>
-                <% if(a.equals(b._id)) { %>
-                <li value="<%= b._id %>">
-                <%= b.email %> </li>
-                <%}}) %>
-                <%}) %>
-                </ul>
-        </div> -->  
-
-        <!-- <div class="button">
-            <form method="POST" action="/jamiyah/delete?id=<%= jamiyah._id%>">
-                <button type="submit" class="login">DELETE</button>
-            </form>
-        </div> -->
+ 
 
     </div>
 
