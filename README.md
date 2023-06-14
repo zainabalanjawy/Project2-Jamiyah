@@ -4,18 +4,18 @@
 
 
 ## Table of contents
-1. [Introduction](##Introduction)
-    * [1.2 Purpose](###Purpose)
-2. [Technologies](###Technologies)
-3. [Design](##Design)
-    * [3.1 Wireframe](###Wireframe)
-    * [3.2 UserStories](###UserStories)
-4. [Planning](##Planning)
-5. [Development](##Development)
-    * [5.1 Instructions](##Instructions)
-    * [5.2 Functions](##Functions)
-6. [Future work](##Futurework)
-7. [Resources](##Resources)
+1. [Introduction](#Introduction)
+    * [1.2 Purpose](#Purpose)
+2. [Technologies](#Technologies)
+3. [Design](#Design)
+    * [3.1 Wireframe](#Wireframe)
+    * [3.2 UserStories](#UserStories)
+4. [Planning](#Planning)
+5. [Development](#Development)
+    * [5.1 Definition](#Definition)
+    * [5.2 Functions](#Functions)
+6. [Future work](#Futurework)
+7. [Resources](#Resources)
 
 
 ## Introduction
@@ -50,14 +50,14 @@
 ### Wireframe
 ##### A basic design for Jamiyah, it contains account authorization, a process of creating updating and deleting Jamiyah's. viewing and updating user profile. furthermore, account balance can be viewd.
 
-![Wireframe](/imgs/wireframe.png)
+![Wireframe](../Project2-Jamiyah/public/imgs/Jamiyah-wireframe.png)
 <br>
 <br>
 
 ### UserStories
 ##### A user story is a general explanation of functionalities written from the perspective of the user. It moves through differnt process till it reach to the testing and the deployment part. 
 
-![Wireframe](/imgs/userStories.png)
+![Wireframe](../Project2-Jamiyah/public/imgs/Jamiyah-userstories.png)
 <br>
 
 ### Planning
@@ -67,8 +67,13 @@
 ## Development
 <hr>
 
-### definition
+### Definition
 ##### A graph of definitions where given to the user to declare the idea, which are basicly the main functions of the app. The developer has to logicly declare and apply them.
+##### 1. The user signup then signin to access jamyia. 
+##### 2. The user must create, view, update or delete jamaya if it not started.  
+##### 3. The user must view, update, or delete the account balance. 
+##### 4. The user must view or update his profile. 
+##### 5. The user must logout from the system. 
 <br>
 
 ### Functions
