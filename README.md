@@ -93,7 +93,7 @@
   let upload = multer({ storage: storage })`
 
 ##### 2.viewing User history 
-const updateEndedJamiyahs = async function () {
+`const updateEndedJamiyahs = async function () {
   const jamiyahs = await Jamiyah.find({ isEnded: false });
   const now = new Date();
   for (const jamiyah of jamiyahs) {
@@ -106,10 +106,10 @@ const updateEndedJamiyahs = async function () {
       await jamiyah.save();
     }
   }
-};
+};`
 
 ##### 3. show participants turn in each months.
-<ul class="timeline" name="participants">
+`<ul class="timeline" name="participants">
                 <% jamiyah.participants.forEach(a => {%>
                     <% month++ %>
                     <% users.forEach(b => {%>
@@ -120,7 +120,7 @@ const updateEndedJamiyahs = async function () {
                     <li value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.name %>"></li>
                 <%}}}) %>
                     <%}) %>
-            </ul>
+            </ul>`
 
 ##### 4.To take id user from htps query
 const jamiyah = await Jamiyah.findById(req.query.id);
