@@ -126,9 +126,11 @@ roll_sound.setAttribute('src', '/sounds/roll.mp3');
 ## Futurework
 <hr>
 
-##### 1. Apply AI technologies to let the player play with the computer.  
-##### 2. Use Local storage to save data locally to allow websites to continue after page refresh or loss of internet connectivity. 
-##### 3. Add extra icons for players using Font awsome Library  
+##### 1. Implement A Payment Gateway, and automatic payments.   
+##### 2. Alerts to inform when actions succeed or fail.
+##### 3. Add a search bar. 
+##### 4. Handling Edge Cases on things like duration or amount inputs. 
+##### 5. Make adding participants with an invite to give the choice of accepting or reclining the Jamiyah.
 
 <br>
 
