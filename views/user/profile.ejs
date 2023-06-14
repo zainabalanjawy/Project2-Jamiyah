@@ -1,4 +1,11 @@
 <style>
+    .avatar 
+    {
+    vertical-align: middle;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    }
     body{
         background-color: rgb(0, 0, 0);
     }
@@ -70,6 +77,7 @@
 <div class="body">
     <div class="header">
         <h1 class="highlight"> <%= currentUser.name  %> Profile</h1>
+        <img src="<%=  currentUser.profileImage%>" alt="Avatar" class="avatar">
     </div>
 
 

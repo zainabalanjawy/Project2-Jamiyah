@@ -42,22 +42,28 @@ exports.jamiyah_details_get = async (req,res)=>{
         const users = await User.find()
         const today = new Date();
         const jamiyah = await Jamiyah.findById(req.query.id)
-        console.log('jam details get: ', jamiyah)
-        res.render('jamiyah/details', {jamiyah, users, today})
-        // console.log(req.query.isEditing)
+        console.log(jamiyah)
+        let isUser=false; 
+        jamiyah.participants.forEach(u => {
+            //if user has jamaya it redirects
+            if(u._id.equals(req.query.uid))
+            {
+                isUser=true; 
+            }
+        });
 
-        // if (req.query.isEditing === 'true') {
-        //     let isEditing = true
-        // // } else {
-        //     let isEditing = false
-        //     res.render('jamiyah/details', {jamiyah, users, today, isEditing})
-        // }
+        if(isUser == true)
+        res.render('jamiyah/details', {jamiyah, users, today})
+        else 
+        res.send('You are Not allowed to view page!')
+       
     } catch (error) {
         console.log(error.message)
         res.send(error.message)
     }
 }
 
+//http://localhost:4007/jamiyah/details?id=648986daadfdf4dcfe92dc46&uid=64883d1247b4ed5537d76507
 exports.jamiyah_details_post = async (req,res)=>{
     try{
         console.log(req.body)
