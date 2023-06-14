@@ -37,17 +37,6 @@ exports.jamiyah_create_post = (req, res) => {
     });
 };
 
-exports.jamiyah_details_get = async (req, res) => {
-  //res.send(' Here is jamiyah/details')
-  //Find jamaya of the id passed to url and expand its details
-  try {
-    const users = await User.find();
-    const today = new Date();
-    const jamiyah = await Jamiyah.findById(req.query.id);
-    // console.log("jam details get: ", jamiyah);
-    res.render("jamiyah/details", { jamiyah, users, today });
-    // console.log(req.query.isEditing)
-
 
 exports.jamiyah_details_get = async (req,res)=>{
     //res.send(' Here is jamiyah/details')
@@ -65,7 +54,7 @@ exports.jamiyah_details_get = async (req,res)=>{
                 isUser=true; 
             }
         });
-
+        console.log(isUser)
         if(isUser == true)
         res.render('jamiyah/details', {jamiyah, users, today})
         else 
@@ -76,30 +65,6 @@ exports.jamiyah_details_get = async (req,res)=>{
         res.send(error.message)
     }
 }
-
-
-exports.jamiyah_details_post = async (req,res)=>{
-    try{
-        console.log(req.body)
-      await Jamiyah.findByIdAndUpdate(req.body.id,req.body)
-        res.redirect('/jamiyah/home')
-    } catch (error) {
-            console.log(error.message)
-            res.send(error.message)
-        }
-}
-
-    // if (req.query.isEditing === 'true') {
-    //     let isEditing = true
-    // // } else {
-    //     let isEditing = false
-    //     res.render('jamiyah/details', {jamiyah, users, today, isEditing})
-    // }
-  } catch (error) {
-    console.log(error.message);
-    res.send(error.message);
-  }
-};
 
 exports.jamiyah_details_post = async (req, res) => {
   try {
