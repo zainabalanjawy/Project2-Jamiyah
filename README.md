@@ -1,6 +1,6 @@
 
 # Project02 - Jamiyah
-<img src="../Project2-Jamiyah/public/imgs/Jamiyah.png" alt="jamiyah logo" style="align-content=center">
+![](../Project2-Jamiyah/public/imgs/Jamiyah.png)
 
 
 ## Table of contents
