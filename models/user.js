@@ -33,6 +33,7 @@ const userSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
+    profileImage: String
   },
   {
     timestamps: true,

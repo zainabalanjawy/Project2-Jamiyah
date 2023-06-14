@@ -48,6 +48,47 @@ exports.jamiyah_details_get = async (req, res) => {
     res.render("jamiyah/details", { jamiyah, users, today });
     // console.log(req.query.isEditing)
 
+
+exports.jamiyah_details_get = async (req,res)=>{
+    //res.send(' Here is jamiyah/details')
+    //Find jamaya of the id passed to url and expand its details
+    try{
+        const users = await User.find()
+        const today = new Date();
+        const jamiyah = await Jamiyah.findById(req.query.id)
+        console.log(jamiyah)
+        let isUser=false; 
+        jamiyah.participants.forEach(u => {
+            //if user has jamaya it redirects
+            if(u._id.equals(req.query.uid))
+            {
+                isUser=true; 
+            }
+        });
+
+        if(isUser == true)
+        res.render('jamiyah/details', {jamiyah, users, today})
+        else 
+        res.send('You are Not allowed to view page!')
+       
+    } catch (error) {
+        console.log(error.message)
+        res.send(error.message)
+    }
+}
+
+
+exports.jamiyah_details_post = async (req,res)=>{
+    try{
+        console.log(req.body)
+      await Jamiyah.findByIdAndUpdate(req.body.id,req.body)
+        res.redirect('/jamiyah/home')
+    } catch (error) {
+            console.log(error.message)
+            res.send(error.message)
+        }
+}
+
     // if (req.query.isEditing === 'true') {
     //     let isEditing = true
     // // } else {
@@ -86,6 +127,7 @@ exports.jamiyah_delete = async (req, res) => {
     console.log("We are in the finally block");
   }
 };
+
 
 exports.jamiyah_history = async (req, res) => {
   try {
