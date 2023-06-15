@@ -57,7 +57,7 @@
 ### UserStories
 ##### A user story is a general explanation of functionalities written from the perspective of the user. It moves through differnt process till it reach to the testing and the deployment part. 
 
-![Wireframe](public/imgs/Jamiyah-userstories.png)
+![User Stories](public/imgs/Jamiyah-userstories.png)
 <br>
 
 ### Planning
