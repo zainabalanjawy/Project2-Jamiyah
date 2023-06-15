@@ -14,7 +14,7 @@
 5. [Development](#Development)
     * [5.1 Definition](#Definition)
     * [5.2 Functions](#Functions)
-6. [Future work](#Futurework)
+6. [Future work and Unsolved problems](#Futurework)
 7. [Resources](#Resources)
 
 
@@ -85,8 +85,9 @@
 ##### 5. View and edit user account balance.
 
 ##### Some of functions where needed to apply a problem-solving strategy like: 
-##### 1. Image uplaod function. 
- `const multer = require('multer');
+##### 1. Image uplaod function:
+```sh
+ const multer = require('multer');
  var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, './public/uploads/')
@@ -95,10 +96,11 @@
       cb(null, file.fieldname + '-' + Date.now() + '-' + file.originalname)
     }
   })
-  let upload = multer({ storage: storage })`
-
-##### 2.viewing User history 
-`const updateEndedJamiyahs = async function () {
+  let upload = multer({ storage: storage })
+```
+##### 2. Viewing User history:
+```sh
+const updateEndedJamiyahs = async function () {
   const jamiyahs = await Jamiyah.find({ isEnded: false });
   const now = new Date();
   for (const jamiyah of jamiyahs) {
@@ -111,33 +113,39 @@
       await jamiyah.save();
     }
   }
-};`
+};
+```
 
-##### 3. show participants turn in each months.
-`<ul class="timeline" name="participants">
-                <% jamiyah.participants.forEach(a => {%>
-                    <% month++ %>
-                    <% users.forEach(b => {%>
-                    <% if(a.equals(b._id)) { %>
-                        <% if(today+1 === month) { %>
-                    <li class="selected" value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.name %>"></li>
-                    <%} else{%>
-                    <li value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.name %>"></li>
-                <%}}}) %>
-                    <%}) %>
-            </ul>`
+##### 3. Show participants turn in each months:
+```sh
+<ul class="timeline" name="participants">
+    <% jamiyah.participants.forEach(a => {%>
+        <% month++ %>
+        <% users.forEach(b => {%>
+        <% if(a.equals(b._id)) { %>
+            <% if(today+1 === month) { %>
+        <li class="selected" value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.name %>"></li>
+        <%} else{%>
+        <li value="<%= b._id %>" data-year=<%=month.toString() %>  data-text="<%= b.name %>"></li>
+    <%}}}) %>
+        <%}) %>
+</ul>
+```
+##### 4. To take user ID from http query: 
+```sh
+const jamiyah = await Jamiyah.findById(req.query.id);
+```
 
-##### 4.To take id user from htps query
-`const jamiyah = await Jamiyah.findById(req.query.id);`
-
-##### 5. Unique Random generator for a unique security code
-`exports.signUpPage = (req, res) => {
+##### 5. Unique Random generator for a unique security code: 
+```sh
+exports.signUpPage = (req, res) => {
   const securityCode = generateRandomSecurityCode();
   res.render(“auth/signup”, {
     securityCode: securityCode,
   });
-};`
-## Futurework
+};
+```
+## Futurework and Unsolved problems
 <hr>
 
 ##### 1. Implement A Payment Gateway, and automatic payments.   
@@ -146,6 +154,7 @@
 ##### 4. Handling Edge Cases on things like duration or amount inputs. 
 ##### 5. Make adding participants with an invite to give the choice of accepting or reclining the Jamiyah.
 
+##### 6. Move the jamyiah from current to history if it ended. 
 <br>
 
 
@@ -153,3 +162,5 @@
 #### 1.[Wireframes](https://www.figma.com/file/ovGUmUf88tiJMdVLRq5Arv/Project02%3AJamiyah?type=design&node-id=0%3A1&t=PcodiLVyraNACL51-1)
 
 #### 2.[User Stories](https://trello.com/invite/b/T3Wmjld3/ATTI56029954509c17209bff882e97906a644B96B25A/project02)
+
+#### 3.[Deployed Application](https://trello.com/invite/b/T3Wmjld3/ATTI56029954509c17209bff882e97906a644B96B25A/project02)
