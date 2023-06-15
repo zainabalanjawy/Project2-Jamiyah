@@ -1,6 +1,6 @@
 
 # Project02 - Jamiyah
-![](Project2-Jamiyah/public/imgs/Jamiyah.png)
+![](public/imgs/Jamiyah.png)
 
 
 ## Table of contents
