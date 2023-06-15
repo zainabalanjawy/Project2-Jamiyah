@@ -50,14 +50,14 @@
 ### Wireframe
 ##### A basic design for Jamiyah, it contains account authorization, a process of creating updating and deleting Jamiyah's. viewing and updating user profile. furthermore, account balance can be viewd.
 
-![Wireframe](../Project2-Jamiyah/public/imgs/Jamiyah-wireframe.png)
+![Wireframe](public/imgs/Jamiyah-wireframe.png)
 <br>
 <br>
 
 ### UserStories
 ##### A user story is a general explanation of functionalities written from the perspective of the user. It moves through differnt process till it reach to the testing and the deployment part. 
 
-![Wireframe](../Project2-Jamiyah/public/imgs/Jamiyah-userstories.png)
+![Wireframe](public/imgs/Jamiyah-userstories.png)
 <br>
 
 ### Planning
