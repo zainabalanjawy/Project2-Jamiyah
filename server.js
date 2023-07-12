@@ -57,11 +57,12 @@ app.listen(port, function () {
   console.log("Server running on port 4007");
 });
 
-mongoose
-  .connect(process.env.DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+mongoose.connect(process.env.DB,
+  {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+  }
+)
   .then(function () {
     console.log("mongoDB connected");
   })
